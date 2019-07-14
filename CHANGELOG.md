@@ -7,3 +7,7 @@
 ## 1.3.0.351 -- 2019-07-14
 
 * First cabal package.
+
+## 1.3.0.352 -- 2019-07-14
+
+* Small documentation corrections.

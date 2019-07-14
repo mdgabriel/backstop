@@ -353,8 +353,8 @@ config :: Configuration
 config =
     Config {
             argOrder       = RequireOrder,
-            -- Update revision number: TOGGLE CASE
-            release        = "1.3.0.351",
+            -- Update revision number: toggle case
+            release        = "1.3.0.352",
             flagsOps       = " {-{h|l|m|v|y}|[-nprt] [-a|-d] trgdir srcdir [srcdir...]}"
            }
     where
