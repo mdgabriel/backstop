@@ -7,7 +7,7 @@
 #
 . "${0%/*}/environment.sh"
 
-sed -n -e 's/^> //p' Main.hs >"$output"
+sed -n -e 's/^> //p' "${0%/*}/../src/Main.hs" >"$output"
 
 for flag in -m --manual
 do

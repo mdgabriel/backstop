@@ -5,6 +5,7 @@ import Data.List (sort,nub,intersect)
 import System.Exit (exitWith,ExitCode(..))
 import System.IO (hPutStrLn,hFlush,stdout,stderr)
 import System.FilePath ((</>),pathSeparator,isAbsolute,isRelative,joinPath)
+import System.Process (runCommand,waitForProcess)
 import Test.HUnit hiding (Testable)
 import Test.QuickCheck (Testable(..),Property(..),(==>),Result(..),quickCheckResult)
 import Utils (putOrPageStrLn,anObject,aSymbolicLink,aDirectory,subdirectories
@@ -69,6 +70,9 @@ main = do putMessage "Unit test reduceFilePath:"
 
           putMessage "Unit test putOrPageStrLn:"
           runTestTT checks4putOrPageStrLn >>= checkCounts
+
+          putMessage "Running black box tests:"
+          runTests >>= exitWith
 
 checkCounts :: Counts -> IO ()
 checkCounts cnts = let errs = errors cnts + failures cnts
@@ -615,16 +619,23 @@ checks4putOrPageStrLn =
            ]
 
 
+-- Section 13 ------------------------------------------------------------------------
+
+runTests :: IO ExitCode
+runTests =
+    runCommand "./tests/run-tests.sh dist*/build/*/ghc-*/backstop-*/x/backstop/build/backstop/backstop"
+                   >>= waitForProcess
+
 -- Section Last ---------------------------------------------------------------------
 
 verify :: Testable a => a -> IO ()
 verify  t =
     do result <- quickCheckResult t
        case result of
-         Success{}                          -> return ()
-         GaveUp  ntest _ _                  -> do hPutStrLn stderr ("Gave up after "++show ntest++" tests")
-                                                  exitWith (ExitFailure (if ntest < 255 then ntest else 255))
-         Failure _ _ _ _ _ _ reason _ _ _ _ -> do hPutStrLn stderr ("Failure: "++reason)
-                                                  exitWith (ExitFailure 255)
-         _                                  -> do hPutStrLn stderr "Not a success"
-                                                  exitWith (ExitFailure 255)
+         Success{}                              -> return ()
+         GaveUp  ntest _ _ _ _ _                -> do hPutStrLn stderr ("Gave up after "++show ntest++" tests")
+                                                      exitWith (ExitFailure (if ntest < 255 then ntest else 255))
+         Failure _ _ _ _ _ _ _ reason _ _ _ _ _ -> do hPutStrLn stderr ("Failure: "++reason)
+                                                      exitWith (ExitFailure 255)
+         _                                      -> do hPutStrLn stderr "Not a success"
+                                                      exitWith (ExitFailure 255)

@@ -1,6 +1,38 @@
-# backstop
-<pre>
-backstop(1)                 User Commands                  backstop(1)
+# The backstop command
+
+The backstop command is a UNIX, Linux, and *BSD tool. Intuitively,
+backstop fills in the missing objects or holes that exist in the
+target directory relative to the source directories thereby creating a
+merged view of the target and source directories.  De-backstop undoes
+this.  See "backstop -m" for a manual page or the
+[homepage](https://github.com/mdgabriel/backstop.git) for more
+information.
+
+The command 'backstop' was created over twenty years ago to manage
+development environement toolchains in which part of the project was
+under source control and part of the project was not, e.g. binaries.
+It was inspired by lndir, graft, and "Source Control to Project
+Control: Applying RCS and SCCS" by Don Bolinger and Tan Bronson.
+Techniques have changed with time, but 'backstop' is a robust tool
+with an extensive test suite that runs around 2700 tests, a
+combination of HUnit, QuickCheck, and black box tests.
+
+In the author's obviously biased veiw, 'backstop' has pedagogical
+value.  The module 'Backstop' use a 'ReaderT' monad transformer to
+manage an 'Environment' passed to it via the command line, a 'StateT'
+monad transformer to keep track of a set of counters and to keep track
+of the status of direcotry content while backstopping or
+de-backstopping.  The last two are 'Monoid's.  With this structure,
+the handling of a dry-run for backstop or de-backstop is rather
+powerful even it is a bit subtle (obscure) to understand.
+
+On a personal note, the author truly began to appreciate Haskell after
+creating the 'Backstop' module and its test suite and has not stopped
+appreciating Haskell since.
+
+# The backstop manual page
+
+```backstop(1)                 User Commands                  backstop(1)
 
 NAME
    backstop - Backstop a target directory by source directories
@@ -257,4 +289,4 @@ NOTES
 
 BUGS
    No known bugs to date.
-</pre>
+```
