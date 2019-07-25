@@ -623,8 +623,13 @@ checks4putOrPageStrLn =
 
 runTests :: IO ExitCode
 runTests =
-    runCommand "./tests/run-tests.sh dist*/build/*/ghc-*/backstop-*/x/backstop/build/backstop/backstop"
-                   >>= waitForProcess
+    let command   = "./tests/run-tests.sh"
+        backstops = "dist*/build/*/ghc-*/backstop-*/x/backstop/build/backstop/backstop"
+                    ++ " "
+                    ++ "dist/build/backstop/backstop"
+                    ++ " "
+                    ++ ".stack-work/install/*/*/8.6.5/bin/backstop"
+    in runCommand (command ++ " " ++ backstops) >>= waitForProcess
 
 -- Section Last ---------------------------------------------------------------------
 

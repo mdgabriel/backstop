@@ -188,7 +188,17 @@ report() {
 #
 # Variables used potentially by each test
 #
-COMMAND="${1:-${0%/*}/../backstop}"
+COMMAND="${backstop}"
+
+for x
+do
+    # Take the first one found
+    if [ -x "${x}" ]
+    then
+        COMMAND="${x}"
+        break
+    fi
+done
 
 VERSION="${COMMAND##*/} .*release [0-9][0-9]*\\.[0-9][0-9]*\\.[0-9][0-9]*"
 

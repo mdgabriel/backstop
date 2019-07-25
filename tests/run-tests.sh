@@ -29,6 +29,8 @@
 #
 . "${0%/*}/environment.sh"
 
+${VERBOSE:-false} && echo "COMMAND=${COMMAND}"
+
 cp "${COMMAND}" "${COMMAND}.$$"
 
 for t in "${0%/*}"/test[0-9][0-9][0-9].sh
