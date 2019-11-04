@@ -176,7 +176,7 @@
 > 
 > USAGE NOTES
 >    Evolved with ghc 6.10, 6.12, 7.0, 7.4, 7.10, 8.0.2, and 8.4.1.
->    Tested with 8.4.1.
+>    Tested with 8.6.5.
 > 
 > EXAMPLES
 >    To display a summary of usage, use
@@ -354,7 +354,7 @@ config =
     Config {
             argOrder       = RequireOrder,
             -- Update revision number: TOGGLE CASE
-            release        = "1.3.0.353",
+            release        = "1.3.0.354",
             flagsOps       = " {-{h|l|m|v|y}|[-nprt] [-a|-d] trgdir srcdir [srcdir...]}"
            }
     where

@@ -189,7 +189,7 @@ internalManual =
     "\n"++
     "USAGE NOTES\n"++
     "   Evolved with ghc 6.10, 6.12, 7.0, 7.4, 7.10, 8.0.2, and 8.4.1.\n"++
-    "   Tested with 8.4.1.\n"++
+    "   Tested with 8.6.5.\n"++
     "\n"++
     "EXAMPLES\n"++
     "   To display a summary of usage, use\n"++

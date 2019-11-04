@@ -15,3 +15,7 @@
 ## 1.3.0.353 -- 2019-07-25
 
 * Now works with stack.
+
+## 1.3.0.354 -- 2019-11-04
+
+* Added the "tested-with" entry to the cabal file.
