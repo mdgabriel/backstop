@@ -21,7 +21,7 @@ In the author's obviously biased veiw, backstop has pedagogical
 value.  The module Backstop uses a ReaderT monad transformer to
 manage an Environment passed to it via the command line, a StateT
 monad transformer to keep track of a set of counters and to keep track
-of the status of direcotry content while backstopping or
+of the status of directory content while backstopping or
 de-backstopping.  The last two are Monoids.  With this structure,
 the handling of a dry-run for backstop or de-backstop is rather
 powerful even it is a bit subtle (obscure) to understand.
@@ -207,8 +207,8 @@ OPERANDS
       extensible backing chain.
 
 USAGE NOTES
-   Evolved with ghc 6.10, 6.12, 7.0, 7.4, 7.10, 8.0.2, and 8.4.1.
-   Tested with 8.4.1.
+   Evolved with ghc 6.10, 6.12, 7.0, 7.4, 7.10, 8.0.2, 8.4.1,
+   8.6.5, and 8.10.5.  Tested with 8.10.5.
 
 EXAMPLES
    To display a summary of usage, use

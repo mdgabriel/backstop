@@ -188,8 +188,8 @@ internalManual =
     "      extensible backing chain.\n"++
     "\n"++
     "USAGE NOTES\n"++
-    "   Evolved with ghc 6.10, 6.12, 7.0, 7.4, 7.10, 8.0.2, and 8.4.1.\n"++
-    "   Tested with 8.6.5.\n"++
+    "   Evolved with ghc 6.10, 6.12, 7.0, 7.4, 7.10, 8.0.2, 8.4.1,\n"++
+    "   8.6.5, and 8.10.5.  Tested with 8.10.5.\n"++
     "\n"++
     "EXAMPLES\n"++
     "   To display a summary of usage, use\n"++

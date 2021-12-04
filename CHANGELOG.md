@@ -19,3 +19,7 @@
 ## 1.3.0.354 -- 2019-11-04
 
 * Added the "tested-with" entry to the cabal file.
+
+## 1.3.0.355 -- 20XX-YY-ZZ
+
+* Small improvement in the documentation.
